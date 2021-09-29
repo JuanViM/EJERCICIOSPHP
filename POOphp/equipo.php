@@ -16,7 +16,7 @@
     {
         private $nombre;
         private $posicion;
-        private $dinero;
+        
 
         function __construct() {
 
@@ -49,6 +49,8 @@
 
             $this->nombre = $nombreNuevo;
         }
+
+       
     }
 
 
