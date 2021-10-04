@@ -23,7 +23,7 @@ class Jugador
     //getters
 
     
-    public function getNumeroJug()
+    public function getNumJug()
     {
         return $this->numeroJug;
     }
@@ -33,22 +33,6 @@ class Jugador
         return $this->ptos;
     }
 
-
-    //Setters
-    public function setNumeroJug($numeroJug)
-    {
-        $this->numeroJug = $numeroJug;
-
-        
-    }
-
-    
-    public function setPtos($ptos)
-    {
-        $this->ptos = $ptos;
-
-        
-    }
 
 
     public function addPtos($ptos){
