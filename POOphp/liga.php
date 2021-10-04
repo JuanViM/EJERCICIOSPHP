@@ -10,7 +10,7 @@
 
 <?php
 
-require "equipo.php";
+require "equipoEjemplo.php";
 
 $equipo1 = new Equipo();
 $equipo2 = new Equipo();
