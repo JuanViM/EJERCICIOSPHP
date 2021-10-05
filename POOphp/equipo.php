@@ -15,27 +15,27 @@
     require "Jugador.php";
     class Equipo
     {
-        private $jugadores =  array();
+        private $jugadores = array();
 
         function __construct()
         {
         }
 
 
-        function addJug($Jugador)
+        function addJug($player)
         {
-            $this->jugadores=$Jugador;
+            $this->jugadores[]=$player;
         }
 
         public function getJug($numJugador)
         {
-            return $this->Jugador;
+            return $this->player;
         }
 
         function getTotal(){
             $totalpuntos=0;
-            foreach ($this->Jugadores as $jugador) {
-                $totalpuntos=$totalpuntos+$jugador->getPtos();
+            foreach ($this->jugadores as $player) {
+                $totalpuntos=$totalpuntos+$player->getPtos();
             }
             return $totalpuntos;
         }

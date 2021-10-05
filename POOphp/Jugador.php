@@ -10,14 +10,17 @@
 
 <?php
 
-class Jugador 
+    Class Jugador 
 {
     private $numeroJug;
     private $ptos;
 
     //constructor Jugador
-   function __construc($numeroJug){
-    $this->numeroJug = $numeroJug;
+
+   function __construct($numeroJug){
+
+    $this->numeroJug=$numeroJug;
+
     }
 
     //getters

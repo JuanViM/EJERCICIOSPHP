@@ -9,31 +9,31 @@
 <body>
     <?php
 
-    require "equipo.php";
-    /*
-    $equipo= new equipo();
+    require "Equipo.php";
+    
+    
+    
+    $equipo= new Equipo();
     for ($i=1; $i <=9; $i++) { 
-        $jugador=new $jugador($i);
-        $jugador->addPtos(rand(20,100));
-        $equipo->addJug($jugador);
+        $jugadorequipo=new Jugador($i);
+        $jugadorequipo->addPtos(rand(20,100));
+        $equipo->addJug($jugadorequipo);
         
         
         
     }
 
-    $equipo->gettotal();
-*/
+   echo "El total de puntos conseguido por el equipo ha sido " .$equipo->gettotal();
 
-    $jugador3=new Jugador(7);
-    $equipo=new equipo();
-    $jugador= new Jugador(6);
-    echo $jugador->getNumJug() . "<br>";
-    echo $jugador3->getNumJug();
-    $jugador->addPtos(rand(20,100));
-    
-   
-   
-    echo $jugador->getPtos();
+    echo "<hr>";
+
+
+    for ($i=1; $i <= 12 ; $i++) { 
+
+        $puntos=rand(20,100);
+        echo "La tirada numero $i ha sido de $puntos" . "<br>";
+    }
+
 
     ?>
     
