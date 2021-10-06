@@ -63,14 +63,15 @@
             if (is_null($dni)) {
                 echo "El dni no existe";
             }else{
-            return $dni["Nombre"] . $dni["Apellidos"];
+            return "Datos del cliente: " . $dni["Nombre"] . $dni["Apellidos"];
             }
         }
 
         // coge la cantidad y la multiplica por 0,21 para aplciarle el IVA
         public function calculaIVA($cantidad)
-        {
-            return $cantidad * 0.21;
+        {   
+            return $cantidad+$cantidad*0.21;
+             
         }
 
         //devuelve la cantidad total sin IVA, es igual que el getcantidad
@@ -82,7 +83,7 @@
         //devuelve los datos del dni como nombre y apellidos
         public function imdemnizado($dni)
         {
-            if (is_null($dni)) {
+            if (empty($dni)) {
                 echo "El dni no existe";
             }else{
             return $dni["Nombre"] . $dni["Apellidos"];

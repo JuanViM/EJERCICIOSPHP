@@ -14,7 +14,7 @@
     {
         private $dni = array();
         private $cantidad;
-        private $numerofactura;// poner como global
+        private $numerofactura;
 
     
         
@@ -65,14 +65,14 @@
         //Metodos
         //devuelve los datos del dni como nombre y apellidos
         public function datosCliente($dni){
-            if (is_null($dni)) {
+            if (empty($dni)) {
                 echo "El dni no existe";
             }else{
-            return $dni["Nombre"] . $dni["Apellidos"];
+            return "Datos de la factura del cliente: " . $dni["Nombre"] . $dni["Apellidos"];
             }
         }
 
-        //devuelve el total d ela factura sin el IVA
+        //devuelve el total de la factura sin el IVA
         public function totalSinIVA(){
 
             return $this->cantidad;
