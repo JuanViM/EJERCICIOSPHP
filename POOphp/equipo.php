@@ -27,9 +27,9 @@
             $this->jugadores[]=$player;
         }
 
-        public function getJug($numJugador)
+        public function getJug($numeroJug)
         {
-            return $this->player;
+            return $this->numeroJug;
         }
 
         function getTotal(){
