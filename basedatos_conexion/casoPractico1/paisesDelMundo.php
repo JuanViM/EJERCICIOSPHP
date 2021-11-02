@@ -1,3 +1,16 @@
+<style>
+
+    tr:first-child{
+        color: red;
+    }
+    
+
+    tr:last-child{
+        color:green;
+    }
+    
+    </style>
+
 <?php
 
 //establecemos la conexion con la base de datos
