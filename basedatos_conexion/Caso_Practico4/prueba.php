@@ -1,5 +1,0 @@
-
-<?php 
-$mysqli = new mysqli("localhost","root", "admin","sakila", 3307);if($mysqli -> connect_errno){    echo "conexion nos establecida";}else{    echo "conexion establecida<br>";}//Actor de formulario$actor=$_POST["actor"];//IdPelicula$idPelicula= $mysqli ->query("SELECT * from film_actor where actor_id = $actor");$numFilasIdActor = $idPelicula -> num_rows;//recorrer film_actor y te recogefor ($i=0; $i < $numFilasIdActor; $i++) {     $IdCoincidencia = $idPelicula -> fetch_assoc();    $id = $IdCoincidencia["film_id"];    echo "<br>".$id;//Peliculas$peliculas = $mysqli ->query("SELECT * FROM film where film_id = $id");$numFilasPeliculas = $peliculas -> num_rows;    for ($i=0; $i < $numFilasPeliculas; $i++) {         $idFilasPeliculas = $peliculas -> fetch_assoc();        echo "<br>".$idFilasPeliculas["title"];    }}
-
-  

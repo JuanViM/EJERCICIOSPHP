@@ -5,7 +5,7 @@ $id = $_POST["actor"];
 
 
 
-$mysqli = new mysqli("localhost","root","","sakila",3307);
+$mysqli = new mysqli("localhost","root","root","sakila",3306);
 
 if ($mysqli->connect_errno) {
     echo "Error al conectar con la base de datos";
@@ -23,9 +23,7 @@ for($i = 0; $i < $num_filas;$i++){
     $filaIdpelis=$resultadoidpelis->fetch_assoc();
    
     $idpelis=$filaIdpelis["film_id"];
-    echo "<br>";
-
-    echo $filaIdpelis["film_id"];
+    
     
     $resultadoNombrePelis = $mysqli->query("SELECT title FROM `film` WHERE film_id = '$idpelis'; ");
     $num_filaspelis = $resultadoNombrePelis->num_rows;

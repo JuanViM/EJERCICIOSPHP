@@ -1,5 +1,5 @@
 <?php
-  $mysqli = new mysqli("localhost","root","","sakila",3307);
+  $mysqli = new mysqli("localhost","root","root","sakila",3306);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@
           ?>
 
         </select>
-          <p><input type="submit" value="buscarlos"></p>
+          <p><input type="submit" value="buscar"></p>
     </form>
 
 </body>

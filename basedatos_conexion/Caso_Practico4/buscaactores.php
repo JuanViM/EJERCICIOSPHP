@@ -1,10 +1,10 @@
 <?php
 
 
-echo $_POST["categoria"];
+$_POST["categoria"];
 $numCategoria=$_POST["categoria"];
 
-$mysqli = new mysqli("localhost","root","","sakila",3307);
+$mysqli = new mysqli("localhost","root","root","sakila",3306);
 
 if($mysqli->connect_errno){
     echo "Error al conectar la base de datos";
@@ -20,6 +20,7 @@ $resultadoidpelis = $mysqli->query("SELECT film_id FROM `film_category` where ca
 $num_filasidpelis = $resultadoidpelis->num_rows;
 
 echo "<h1 align='center'> Seleccione la pelicula para ver sus actores</h1>";
+echo "<form action='actores.php' method='post'>";
 echo "<select align='center' name='peliculas'>";
 for($i=0;$i<$num_filasidpelis;$i++){
     $filaidpelis=$resultadoidpelis->fetch_assoc();
@@ -39,6 +40,9 @@ for($i=0;$i<$num_filasidpelis;$i++){
         
 }
 echo "</select>"; 
+echo "<p><input type='submit' value='ver actores'></p>";
+echo "</form>";
+
 
 
 
