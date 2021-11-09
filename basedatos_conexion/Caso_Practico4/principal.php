@@ -26,6 +26,20 @@
         <p><input type="submit" value="buscar"></p>
     </form>
 
+    <form action="buscaactores.php" method="post">
+        <p>seleccione en la categoria que desea buscar</p>
+        <select name="categoria">
+          <?php
+          $query1 = $mysqli ->query("select * from category");
+          while($valor = mysqli_fetch_array($query1)){
+            echo '<option value="'.$valor["category_id"].'">'.$valor["name"].'</option>';
+          }
+          ?>
+
+        </select>
+          <p><input type="submit" value="buscarlos"></p>
+    </form>
+
 </body>
 
 </html>
