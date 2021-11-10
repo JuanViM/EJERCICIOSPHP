@@ -23,7 +23,7 @@
         }
         ?>
         </select>
-        <p><input type="submit" value="buscar"></p>
+        <p><input type="submit" value="Buscar"></p>
     </form>
 
     <form action="buscaactores.php" method="post">
@@ -37,7 +37,7 @@
           ?>
 
         </select>
-          <p><input type="submit" value="buscar"></p>
+          <p><input type="submit" value="Buscar"></p>
     </form>
 
 </body>

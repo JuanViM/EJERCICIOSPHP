@@ -1,33 +1,35 @@
 <?php
 
 
-$idpelis=$_POST["peliculas"];
-$idpelis;
+$idPelis=$_POST["peliculas"];
+$idPelis;
 
-$mysqli = new mysqli("localhost","root","root","sakila",3306);
+$mysqli = new mysqli("localhost","root","","sakila",3307);
 
 if($mysqli->connect_errno){
-    echo "Error al conectar la base de datos";
+    echo "Error al conectar la base de datos ";
 }else{
-    echo "La base de datos se conecto satisfactoriamente";
+    echo "La base de datos se conecto satisfactoriamente ";
 }
 
 echo $mysqli->host_info."<br>";
 
-$resultadoidactor = $mysqli->query("SELECT * FROM `film_actor` where film_id = '$idpelis';");
-$num_filasidactor = $resultadoidactor->num_rows;
+$resultado_id_actor = $mysqli->query("SELECT * FROM `film_actor` where film_id = '$idPelis';");
+$num_filas_id_actor = $resultado_id_actor->num_rows;
 
-for($i=0;$i<$num_filasidactor;$i++){
-    $filaidactor = $resultadoidactor->fetch_assoc();
+echo "<h1> Los actores que participaron en esta pelicula fueron :  </h1>";
+
+for($i=0;$i<$num_filas_id_actor;$i++){
+    $fila_id_actor = $resultado_id_actor->fetch_assoc();
     
     
-     $idactor=$filaidactor["actor_id"];
-    $resultadonombrepelis = $mysqli->query("SELECT * FROM `actor` where actor_id = '$idactor'");
-    $numfilasnomactor = $resultadonombrepelis->num_rows;
-    for($x=0;$x<$numfilasnomactor;$x++){
-        $filanombreactor = $resultadonombrepelis->fetch_assoc();
+     $idactor=$fila_id_actor["actor_id"];
+    $resultadoNombrePelis = $mysqli->query("SELECT * FROM `actor` where actor_id = '$idactor'");
+    $num_filasNombreActor = $resultadoNombrePelis->num_rows;
+    for($x=0;$x<$num_filasNombreActor;$x++){
+        $filaNombreActor = $resultadoNombrePelis->fetch_assoc();
         echo "<br>";
-        echo $filanombreactor["first_name"] . " " . $filanombreactor["last_name"];
+        echo $filaNombreActor["first_name"] . " " . $filaNombreActor["last_name"];
 
     }
 }
