@@ -10,9 +10,9 @@
     <p>Elija que opcion desea ver, los actores o las peliculas</p>
     
     
-       <a href="actores.php>">Actores</a></option>
-        <option value="peliculas">Peliculas</option>
-    </select>
+       <a href="actorestabla.php">Actores</a>
+        <a href="peliculastabla.php">Peliculas</a>
+    
     
     
 </body>
