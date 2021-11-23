@@ -7,9 +7,9 @@ $mysqli = new mysqli("localhost","root","root","sakila",3306);
 $resultado=$mysqli->query("select * from film");
 $num_filas = $resultado->num_rows;
 
-echo "<p>Aqui puede ver toda la lista de peliculas, pero si lo que desea hacer es insertar una nueva pinche <a href='insertarPelis.php'>aquí</a></p>";
-echo "si por el contrario lo que desea es borrar una pelicula pulse <a href='borrarPelis.php'>aquí</a></p>";
-echo "O si lo que desea es modificar una pelicula pulse <a href='modificarPelis.php'>aquí</a></p>";
+echo "<p>Aqui puede ver toda la lista de peliculas, pero si lo que desea hacer es cambiar el idioma <a href='insertarPelis.php'>aquí</a></p>";
+echo "<p>si por el contrario lo que desea es ver los actores de la pelicula pulse <a href='modificarActores.php'>aquí</a></p>";
+echo "<p></p>";
 echo "<table border=1>";
 echo "<th>ID</th><th>Titulo</th><th>Descripcion</th><th>Año de salida</th><th>Lenguaje</th><th>Características especiales</th>";
 for($i=0;$i<$num_filas;$i++){
