@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   
-</body>
-</html>
+
+
 
 <?php
 
-
+error_reporting(0);
 $idpelis=$_POST["peli"];
-
-
 $mysqli = new mysqli("localhost","root","root","sakila",3306);
 
 $resultadoIDActores=$mysqli->query("SELECT * FROM FILM_ACTOR WHERE FILM_ID = $idpelis");
 $num_filas = $resultadoIDActores->num_rows;
 echo "<form method='post'>";
-echo "<select>";
+echo "<select name='actor'>";
 for($i=0;$i<$num_filas;$i++){
     $filas = $resultadoIDActores->fetch_assoc();
     
@@ -35,9 +23,27 @@ for($i=0;$i<$num_filas;$i++){
     
 }
 echo "</select>";
-echo "</form>";
-echo "<p>si desea borrar a un actor pulse en borrar</p>";
-echo  "<p><input type='hidden' value='$idpeli'></p>";
+echo "<p>si desea borrar a un actor de la pelicula pulse en borrar</p>";
+echo  "<p><input type='submit' value='Borrar'></p>";
+$idpelis;
+if(!$_POST["actor"]==null){
+    
+    $resultado=$mysqli->query("DELETE from FILM_ACTOR WHERE actor_id=".$_POST["actor"]." AND film_id=".$_POST["peli"]);
+    echo "Actor borrado con exito de la pelicula <br>";
+    
+}
+
 
 ?>
+
+<input type="hidden" name="peli" value="
+
+<?php
+
+echo $idpelis;
+
+?>
+">
+</form>
+
 

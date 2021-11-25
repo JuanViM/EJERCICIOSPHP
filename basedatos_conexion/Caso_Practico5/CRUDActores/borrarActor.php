@@ -22,8 +22,9 @@
 if(!$_POST==null){
     $id=$_POST["id"];
     $mysqli = new mysqli("localhost","root","root","sakila",3306);
-
-    $resultado=$mysqli->query("DELETE actor from actor WHERE actor_id=$id");
+    $RESULTADOborrar=$mysqli->query("DELETE from film_actor WHERE actor_id=$id");
+    $resultado=$mysqli->query("DELETE from actor WHERE actor_id=$id");
+    
     echo "Actor borrado con exito <br>";
     echo "<h4>Pulse<a href='actorestabla.php'> aquí </a> para regresar a la tabla de los actores</h4>";
 }

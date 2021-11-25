@@ -1,7 +1,4 @@
 <?php
- 
-
-
 
 error_reporting(0);
 $idpelis=$_POST["peli"];
@@ -26,14 +23,13 @@ for($i=0;$i<$num_filas;$i++){
 }
 }
 echo "</select>";
-echo "<p>si desea modificar un actor pulse en modificar</p>";
-
+echo "<p>si desea insertar un actor pulse en insertar</p>";
+echo  "<p><input type='submit' value='Insertar'></p>";
 
 if(!$_POST["actor"]==null){
      
     $actor= $_POST["actor"];
-    
-    $resultadoInsertar=$mysqli->query("UPDATE actor set first_name='".$_POST["nombre"]."',last_name='".$_POST["apellidos"]."' where actor_id= $actor");
+    $resultadoInsertar=$mysqli->query("INSERT INTO film_actor (actor_id, film_id) VALUES ($actor,$idpelis)");
     
 }
 echo "<table border=1 align='center'> <th>Nombre Actor</th> <th>Apellidos </th> ";
@@ -49,10 +45,6 @@ echo "<table border=1 align='center'> <th>Nombre Actor</th> <th>Apellidos </th> 
 
 ?>
 
-<div>nombre actor</div>
-<input type="text" name="nombre" required>
-<div>apellidos actor</div>
-<input type="text" name="apellidos" required><br>
 <input type="hidden" name="peli" value="
 
 <?php
@@ -61,6 +53,4 @@ echo $idpelis;
 
 ?>
 ">
-<p><input type='submit' value='Modificar'></p>
 </form>
-
