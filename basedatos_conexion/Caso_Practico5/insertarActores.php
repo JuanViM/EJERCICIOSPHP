@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(0);
+
 $idpelis=$_POST["peli"];
 $mysqli = new mysqli("localhost","root","root","sakila",3306);
 
@@ -26,7 +26,7 @@ echo "</select>";
 echo "<p>si desea insertar un actor pulse en insertar</p>";
 echo  "<p><input type='submit' value='Insertar'></p>";
 
-if(!$_POST["actor"]==null){
+if(isset($_POST["actor"])){
      
     $actor= $_POST["actor"];
     $resultadoInsertar=$mysqli->query("INSERT INTO film_actor (actor_id, film_id) VALUES ($actor,$idpelis)");
