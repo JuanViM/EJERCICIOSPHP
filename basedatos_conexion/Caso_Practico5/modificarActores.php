@@ -3,7 +3,7 @@
 
 
 
-error_reporting(0);
+
 $idpelis=$_POST["peli"];
 $mysqli = new mysqli("localhost","root","root","sakila",3306);
 
@@ -29,7 +29,7 @@ echo "</select>";
 echo "<p>si desea modificar un actor pulse en modificar</p>";
 
 
-if(!$_POST["actor"]==null){
+if(isset($_POST["actor"])){
      
     $actor= $_POST["actor"];
     
