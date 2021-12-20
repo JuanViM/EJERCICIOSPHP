@@ -4,9 +4,9 @@ class db {
     //atributos para la conexion
     private $host="localhost";
     private $user ="root";
-    private $pass = "root";
+    private $pass = "";
     private $db_name = "nba";
-    private $port = 3306;
+    private $port = 3307;
     
 // conector
     private $conexion;
