@@ -14,15 +14,30 @@
         <?php
          include_once "querys.php";
          $equipos = new querys();
-         $tablaEquipos = $equipos->devolverEquipos();
-        echo "<p>Nombre del equipo <select name='equipo'></p>";
-
+         $tablaEquipos = $equipos->mostrarEquipos();
+         $tablaTemporada = $equipos->mostrarTemporada();
+        echo "<p>Nombre del equipo local <select name='equipoLocal'></p>";
 
     foreach ($tablaEquipos as $filaEquipos) {
 
         echo "<option value=" . $filaEquipos["Nombre"] . ">" . $filaEquipos["Nombre"] . "</option>";
     }   
     echo "</select>";
+    echo "<p>Nombre del equipo visitante <select name='equipovisitante'></p>";
+
+    foreach ($tablaEquipos as $filaEquipos) {
+
+        echo "<option value=" . $filaEquipos["Nombre"] . ">" . $filaEquipos["Nombre"] . "</option>";
+    }   
+    echo "</select>";
+    echo "<p>Temporada de los partidos <select name='temporada'></p>";
+
+    foreach ($tablaTemporada as $filaTemporada) {
+
+        echo "<option value=" . $filaTemporada["temporada"] . ">" . $filaTemporada["temporada"] . "</option>";
+    }   
+    echo "</select>";
+
     ?>
         <input value="Filtrar" type="submit">   
         </fieldset>         

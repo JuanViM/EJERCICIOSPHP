@@ -22,9 +22,11 @@ include_once "querys.php";
 
 $partidos = new querys();
 
-$equipo = $_POST["equipo"];
+$equipoLocal = $_POST["equipoLocal"];
+$equipovis = $_POST["equipovisitante"];
+$temporada= $_POST["temporada"];
 
-$tablaPartidos=$partidos->mostrarPartidos($equipo);
+$tablaPartidos=$partidos->mostrarPartidos($equipoLocal,$equipovis,$temporada);
 
 foreach ($tablaPartidos as $filas) {
     echo " <td>" . $filas["equipo_local"] . "</td>";
