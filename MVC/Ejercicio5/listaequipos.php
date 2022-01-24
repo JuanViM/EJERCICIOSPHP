@@ -19,7 +19,7 @@
 
 
 
-include_once "querys.php";
+include_once "Equipo.php";
 
 $equipos = new querys();
 
@@ -27,7 +27,7 @@ $tablaEquipos=$equipos->mostrarEquipos();
 
 foreach ($tablaEquipos as $filas) {
     echo "<form method='post' action='borrarBD.php'>";
-    echo "<td>"."<input type='text' name='equipo' value=". $filas["Nombre"]." "."readonly>" . "</td>";
+    echo " <td>"."<input type='text' name='equipo' value=". $filas["Nombre"]." "."readonly>" . "</td>";
     echo "<td>" . $filas["Ciudad"] . "</td>";
     echo " <td>" . $filas["Conferencia"] . "</td>";
     echo "<td>" . $filas["Division"] . "</td>";  
