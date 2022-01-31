@@ -5,23 +5,7 @@ include "db.php";
          // de esta forma realizamos la conexion a la base de datos
          parent::__construct();
      }
-     //devolvemos todos los partidos
-    //  function mostrarPartidos($equipolocal,$equipovis,$temporada){
-    //      //construimos la consulta
-    //      $sql="SELECT * FROM partidos where equipo_local = '$equipolocal' and equipo_visitante = '$equipovis' and temporada =  '$temporada'";
-    //      //Realizamos la consulta
-    //      $resultado = $this->realizarConsulta($sql);
-    //      if($resultado !=null){
-    //          //guardamos los partidos en un array llamado tabla
-    //          $tabla=[];
-    //          while($fila=$resultado->fetch_assoc()){
-    //              $tabla[]=$fila;
-    //          }
-    //          return $tabla;
-    //      }else{
-    //          return null;
-    //      }
-    //  }
+     
     
     //devolvemos todos los jugadores
     function mostrarJugadores(){
@@ -87,34 +71,21 @@ function modificarJugador($nombre,$procedencia,$altura,$peso,$posicion,$nombrequ
      }
 }
 
-function borrarJugador($codigo,$nombre){
+function borrarJugador($nombre){
     //construimos la consulta
-    $sql1="DELETE FROM estadisticas where jugador = $codigo";
+
     $sql="DELETE FROM jugadores where nombre = '$nombre'";
+
     //Realizamos la consulta
-    $resultado1 = $this->realizarConsulta($sql1);
+
     $resultado = $this->realizarConsulta($sql);
-     if($resultado !=null && $resultado1 !=null){
+     if($resultado !=null){
          //guardamos los equipos en un array llamado tabla
         return true;
      }else{
          return null;
      }
 }
-
-// function borrarEstadistica($codigo){
-//     //construimos la consulta
-//     $sql="DELETE FROM estadisticas where jugador = $codigo";
-//     //Realizamos la consulta
-//     $resultado = $this->realizarConsulta($sql);
-//      if($resultado !=null){
-//          //guardamos los equipos en un array llamado tabla
-//         return true;
-//      }else{
-//          return null;
-//      }
-
-// }
 
 
     }
