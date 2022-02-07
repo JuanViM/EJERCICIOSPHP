@@ -8,11 +8,45 @@
 </head>
 <body>
     <?php
-echo (isset($_COOKIE["cebolla"]));
-echo "<p>tienes un total de ". isset($_COOKIE["zanahoria"])==1 ? $_COOKIE["zanahoria"]=0 : $_COOKIE["zanahoria"] . " zanahorias</p>";
-echo "<p>tienes un total de ". isset($_COOKIE["tomate"])==1 ? $_COOKIE["tomate"]=0 : $_COOKIE["tomate"] . " tomates</p>";
-echo "<p>tienes un total de ". isset($_COOKIE["cebolla"])==1 ? 0 : $_COOKIE["cebolla"] . " cebollas</p>";
-echo "<p>tienes un total de ". isset($_COOKIE["lechuga"])==1 ? $_COOKIE["lechuga"]=0 : $_COOKIE["lechuga"] . " lechugas</p>";
+    error_reporting(0);
+
+$zanahoria = $_COOKIE["zanahoria"];
+$tomate= $_COOKIE["tomate"];
+$cebolla=$_COOKIE["cebolla"];
+$lechuga=$_COOKIE["lechuga"];
+
+
+
+
+ if(!isset($zanahoria)){
+        $zanahoria=0;
+        echo "<p>tienes un total de $zanahoria zanahoria</p>";
+    }else{
+    echo "<p>tienes un total de $zanahoria zanahoria</p>";
+    }
+if(!isset($tomate)){
+        $tomate=0;
+        echo "<p>tienes un total de $tomate tomate</p>";
+}else{
+    echo "<p>tienes un total de $tomate tomate</p>";
+                }
+
+if(!isset($cebolla)){
+    $cebolla=0;
+            echo "<p>tienes un total de $cebolla cebolla</p>";
+    }else{
+        echo "<p>tienes un total de $cebolla cebolla</p>";
+    }
+
+
+
+
+if(!isset($lechuga)){
+$lechuga=0;
+echo "<p>tienes un total de $lechuga lechugas</p>";
+}else{
+echo "<p>tienes un total de $lechuga lechugas</p>";
+}
   
     ?>
 

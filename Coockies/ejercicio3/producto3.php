@@ -13,7 +13,7 @@
 <input type="submit">
 </form>   
 <?php
-
+error_reporting(0);
 if(isset($_POST["cantidadCe"])){
 
     $_COOKIE["cebolla"];
@@ -22,10 +22,10 @@ $totalcebo = $_POST["cantidadCe"];
 
 $cebollas = $totalcebo + $_COOKIE["cebolla"];
 
-setcookie("cebolla",$cebollas);
+setcookie("cebolla",$cebollas,time()+86.400);
 }
 
-echo "ha añadido al carrito " . isset($cebollas) ? "ha añadido al carrito ".$cebollas=0 ." cebollas": $cebollas. " cebollas";
+echo "<p>Ha añadido al carrito " . $_POST["cantidadCe"] . " cebollas</p>";
 
 ?>
 <a href="carrito.php"><input type="button" value="ir a carrito"></a>

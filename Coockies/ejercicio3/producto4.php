@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-<form action="carrito.php" method="POST">
+<form action="" method="POST">
 <input type="text" value="Lechuga" name="nombreLe" readonly>
 <input type="number" name="cantidadLe">
 <input type="submit">
-</form>   
-<?php
 
+<?php
+error_reporting(0);
 if(isset($_POST["cantidadLe"])){
 
 $_COOKIE["lechuga"];
@@ -22,10 +22,10 @@ $totalle = $_POST["cantidadLe"];
 
 $lechugas = $totalle + $_COOKIE["lechuga"];
 
-setcookie("lechuga",$lechugas);
+setcookie("lechuga",$lechugas,time()+86.400);
 }
 
-echo "ha añadido al carrito " . isset($lechugas) ? "ha añadido al carrito ".$lechugas=0 ." lechugas": $lechugas. " lechugas";
+echo "<p>Ha añadido al carrito " . $_POST["cantidadLe"] . " lechugas</p>";
 
 
 ?>

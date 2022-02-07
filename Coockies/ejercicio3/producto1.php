@@ -10,27 +10,27 @@
 <form action="" method="POST">
 <input type="text" value="Zanahorias" name="nombreZa" readonly>
 <input type="number" name="cantidadZa">
-<input type="submit">
-</form>   
+<input type="submit" value="Comprar">
+</form>
 
 <?php
-
+error_reporting(0);
 if(isset($_POST["cantidadZa"])){
 
-    $_COOKIE["zanahoria"];
+$_COOKIE["zanahoria"];
 
 $totalZana = $_POST["cantidadZa"];
 
 $zanahorias = $totalZana + $_COOKIE["zanahoria"];
 
-setcookie("zanahoria",$zanahorias);
+setcookie("zanahoria",$zanahorias,time()+86.400);
 }
-
-echo "ha añadido al carrito " . isset($zanahorias) ? "ha añadido al carrito ".$zanahorias=0 ." zanahorias": $zanahorias. " zanahorias";
-
 
 ?>
 <p><a href="carrito.php"><input type="button" value="ir a carrito"></a></p>
+<?php
 
+echo "<p>Ha añadido al carrito " . $_POST["cantidadZa"] . " zanahorias</p>";
+?>
 </body>
 </html>

@@ -14,16 +14,17 @@
 </form> 
   
 <?php
+error_reporting(0);
 if(isset($_POST["cantidadTom"])){
     $_COOKIE["tomate"];
     $totaltom= $_POST["cantidadTom"];
 
     $tomates = $totaltom + $_COOKIE["tomate"];
     
-    setcookie("tomate",$tomates);
+    setcookie("tomate",$tomates,time()+86.400);
 }
 
-echo "ha añadido al carrito " . isset($_POST["cantidadTom"]) ? "ha añadido al carrito ".$_POST["cantidadTom"]=0 ." tomates": $_POST["cantidadTom"]. " tomates";
+echo "<p>Ha añadido al carrito " . $_POST["cantidadTom"]. " tomates</p>";
 
 ?>
 <a href="carrito.php"><input type="button" value="ir a carrito"></a>
