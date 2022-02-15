@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: <?php echo $_COOKIE["color"] ?>;
+        }
+    </style>
 </head>
 <body>
     <form action="" method="POST" style="text-align: center;">
@@ -46,7 +51,7 @@ session_start();
     if(!empty($_SESSION["email"])){
 
         if($comprobante){
-            header("refresh:1;url=http://localhost/EJERCICIOSPHP/Coockies/casoPractico3/miperfil.php");
+            header("refresh:1;url=http://localhost/EJERCICIOSPHP/Coockies/casoPractico5/miperfil.php");
             echo "<p style='text-align: center;color:green'>Usuario registrado correctamente</p>";
             exit;
         }else {

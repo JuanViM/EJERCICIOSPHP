@@ -46,7 +46,7 @@ session_start();
     if(!empty($_SESSION["email"])){
 
         if($comprobante){
-            header("refresh:1;url=http://localhost/EJERCICIOSPHP/Coockies/casoPractico3/miperfil.php");
+            header("refresh:1;url=http://localhost/EJERCICIOSPHP/Coockies/casoPractico4/miperfil.php");
             echo "<p style='text-align: center;color:green'>Usuario registrado correctamente</p>";
             exit;
         }else {

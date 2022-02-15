@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: <?php echo $_COOKIE["color"] ?>;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -12,6 +17,7 @@
 session_start();
 
     ?>
+    
     <form action="" method="POST" style="text-align: center;">
     <p><label>Email</label>
     <input type="text" name="email" value="<?php echo $_SESSION["email"] ?>" readonly></p> 
@@ -22,13 +28,38 @@ session_start();
     <p><label>Apellidos</label required>
     <input type="text" name="apellidos"></p>
     
-    <label for="rol">rol</label>
+   <p> <label for="rol">rol</label>
 <select name="rol" id="rol">
 <option value="1">USER</option>
 <option value="2">ADMIN</option>
 <option value="3">SUPER ADMIN</option>
-
 </select>
+</p>
+<p><label for="color">Color de fondo</label>
+<select name="color" id="color">
+    
+    <option value="red">Rojo</option>
+    
+    <?php if($_COOKIE["color"]=="green"){
+       echo   "<option value='green' selected>Verde</option>";
+    }else{
+        echo "<option value='green'>Verde</option>";
+    } ?>
+
+    <?php if($_COOKIE["color"]=="blue"){
+       echo   "<option value='blue' selected>Azul</option>";
+    }else{
+        echo "<option value='blue'>Azul</option>";
+        echo $_COOKIE["color"];
+    } ?>
+    <?php if($_COOKIE["color"]=="white"){
+       echo   "<option value='white' selected>Blanco</option>";
+    }else{
+        echo "<option value='white'>Blanco</option>";
+    } ?>
+    
+</select>
+
 
     <p><input type="submit" value="Actualizar"></p>
     <p><a href="cerrarsesion.php">Volver a login sin actualizar</a></p>
@@ -40,6 +71,10 @@ session_start();
     include "query.php";
 
     $usuario=new query();
+
+    if (empty($_SESSION["color"])) {
+        setcookie("color",$_POST["color"],"/");
+    }
 
     if(empty($_SESSION["email"])){
         header("location:index.php");
@@ -78,7 +113,7 @@ session_start();
 if(!empty($nombre)){
     
     echo "<p style='text-align: center;color:green'>el usuario ha sido actualizado satisfactoriamente</p>";
-   header("refresh:2;url=http://localhost/EJERCICIOSPHP/Coockies/casoPractico3/cerrarsesion.php");
+   header("refresh:2;url=http://localhost/EJERCICIOSPHP/Coockies/casoPractico4/prueba.php");
     
 }else {
 

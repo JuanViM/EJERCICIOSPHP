@@ -8,7 +8,7 @@
 </head>
 <body>
     
-<form action="" method="post" style="text-align: center;">
+<form action="registrado.php" method="post" style="text-align: center;">
    <p><label>Email</label>
     <input type="text" name="email" required></p> 
     
@@ -27,34 +27,7 @@
 </form>
 <p style="text-align: center;"><a href="index.php">Ir al login</a></p>
 
-<?php
 
-require "query.php";
-
-$usuarios=new query();
-
-if(!empty($_POST["contraseña"]) && !empty($_POST["contraseña2"]) && ($_POST["contraseña2"] == $_POST["contraseña"]) ){
-    $email=  $_POST["email"];
-    $pass=  $_POST["contraseña"];
-    $nombre=  $_POST["nombre"];
-    $apellidos=  $_POST["apellidos"];
-    $contrase=sha1($pass);
-    $entrada=$usuarios->insertarUsuarios($nombre,$apellidos,$email,$contrase);
-    if(!empty($entrada) && $entrada==true){
-        echo "<p style='text-align: center;color:green'>Usuario registrado correctamente</p>";
-
-    }else if(!empty($entrada) && $entrada==false){
-        echo "<p style='text-align: center;color:red'>error de registro</p>";
-    }
-    
-}else if(!empty($_POST["contraseña"]) && !empty($_POST["contraseña2"]) && $_POST["contraseña"] != $_POST["contraseña2"]) {
-    echo "<p style='text-align: center;color:red'>Alerta las contraseñas no coinciden</p>";
-       
-    
-}
-
-
-?>
 
 </body>
 </html>
