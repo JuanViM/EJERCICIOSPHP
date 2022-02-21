@@ -10,9 +10,12 @@ class query extends db {
     //devolvemos todos los partidos
     function updateJugador($array){
         //construimos la consulta
-        $cosas=json_decode($array,true);     
-        $sql="UPDATE jugadores SET nombreJugador='".$cosas['nombreJugador']."',posicion='".$cosas['posicion']."',numero=".$cosas['numero'].", edad=".$cosas['edad']." where id= ".$cosas['id']."";
-        //Realizamos la consulta     
+        $cosas=json_decode($array,true);
+        
+        $sql="DELETE FROM `jugadores` WHERE `jugadores`.`id` = ".$cosas['id']."";
+        
+        //Realizamos la consulta
+        
         $resultado = $this->realizarConsulta($sql);
      if($resultado !=null){
          //guardamos los equipos en un array llamado tabla

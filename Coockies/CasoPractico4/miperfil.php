@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         body{
-            background-color: <?php echo $_COOKIE["color"] ?>;
+            background-color: <?= $_COOKIE["color"] ?>;
         }
     </style>
 </head>
@@ -123,6 +123,17 @@ if(!empty($nombre)){
 }
 }
 }
+
 ?>
+
+<!-- <?php foreach ($roles as $rol): ?>
+    <option value="<?=$rol['id']?>"><?=$rol['rol']?></option>
+    <?php endforeach; ?>
+</select>
+
+
+?> -->
+
+
 </body>
 </html>
