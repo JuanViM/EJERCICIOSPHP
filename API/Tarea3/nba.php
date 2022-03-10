@@ -22,22 +22,51 @@ class query extends db {
      }
     }
 
-    function mostrarEquipo($array){
-        $cosas=json_decode($array,true);
-        $sql= "SELECT * FROM equipos where Nombre= '".$cosas['Nombre']."'" ;
-         //Realizamos la consulta       
-         $resultado = $this->realizarConsulta($sql);
-         if($resultado !=null){
-             //guardamos los partidos en un array llamado tabla
-             $tabla=[];
-             while($fila=$resultado->fetch_assoc()){
-                 $tabla[]=$fila;
-             }
-             return $tabla;
-         }else{
-             return null;
-         }
-    }
+
+    function mostrarEquipo($nombre){
+
+        $sql = "SELECT * FROM equipos WHERE nombre='".$nombre."';";
+        
+        $resultado = $this->realizarConsulta($sql);
+        
+        if($resultado!=null){
+        
+        $usuario=$resultado->fetch_assoc();
+        
+        $json_equipo = json_encode($usuario);
+        
+        return $json_equipo;
+        
+        }
+        
+        else{
+        
+        return null;
+        
+        }
+        
+        }
+    
+
+    // function mostrarEquipo($nombre){
+       
+    //     $sql= "SELECT * FROM equipos where Nombre= '$nombre'";
+    //      Realizamos la consulta       
+    //      $resultado = $this->realizarConsulta($sql);
+    //      if($resultado !=null){
+    //          guardamos los partidos en un array llamado tabla
+    //          $tabla=[];
+    //          while($fila=$resultado->fetch_assoc()){
+    //              $tabla[]=$fila;
+    //          }
+    //          $json_equipo = json_encode($tabla);
+        
+    //          return $json_equipo;
+            
+    //      }else{
+    //          return null;
+    //      }
+    // }
 
     
     function insertarEquipo($array){
